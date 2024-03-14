@@ -32,7 +32,7 @@ module.exports.createListing = async ( req,res,next) => {
     const newListing = new Listing(req.body.listing); 
     newListing.owner = req.user._id; //owner also add current session  
     newListing.image = { url, filename };
-    newListing.category = req.listing.category;
+    // newListing.category = req.listing.category;
     await newListing.save();
     req.flash("success", "successfully New Listing created")
     res.redirect("/listings");
